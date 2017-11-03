@@ -158,11 +158,11 @@ public class ThumbsUpView extends View implements Like, ValueAnimator.AnimatorUp
             thumbsRect.bottom = (int) (centerPoint.y + thumbsScale * (1 - minifyScale * outProgress) * squareSideLen / 2) + thumbsOffsetY;
 
             if (liked) {
-                unselectedDrawable.draw(canvas);
                 unselectedDrawable.setBounds(thumbsRect);
+                unselectedDrawable.draw(canvas);
             } else {
-                selectedDrawable.draw(canvas);
                 selectedDrawable.setBounds(thumbsRect);
+                selectedDrawable.draw(canvas);
             }
         }
 

@@ -110,6 +110,7 @@ public class LikeNumTextView extends View implements Like, ValueAnimator.Animato
         } else {
 
             for (int i = oldSumLikeArrayLength - 1; i >= 0; i--) {
+                // 画不变的部分
                 if (oldSumLikeArray[i] == nowSumLikeArray[i]) {
                     mPaint.setAlpha(255);
                     canvas.drawText("" + nowSumLikeArray[i]
@@ -117,6 +118,7 @@ public class LikeNumTextView extends View implements Like, ValueAnimator.Animato
                             , mHeight / 2 - mPaint.descent() / 2 - mPaint.ascent() / 2, mPaint);
                     continue;
                 }
+                // 画变化的部分
                 if (animProgress < 1) {
                     mPaint.setAlpha((int) (255 - 255 * animProgress));
                     canvas.drawText("" + oldSumLikeArray[i]
@@ -150,7 +152,6 @@ public class LikeNumTextView extends View implements Like, ValueAnimator.Animato
             like();
 
         anylasisLikes();
-        requestLayout();
         animator.start();
     }
 
@@ -178,7 +179,6 @@ public class LikeNumTextView extends View implements Like, ValueAnimator.Animato
     public void setSumLike(int sumLike) {
         this.sumLike = sumLike;
         anylasisLikes();
-        requestLayout();
         invalidate();
     }
 
